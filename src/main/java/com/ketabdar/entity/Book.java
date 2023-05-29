@@ -1,9 +1,19 @@
 package com.ketabdar.entity;
 
 public class Book {
+    private long id;
     private String tittle;
     private String author;
     private int yearOfPublication;
+
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String getTittle() {
         return tittle;
