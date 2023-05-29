@@ -4,13 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="de475e65-2533-4031-abc9-48f13c2d5196" name="Changes" comment="Create Project with IntelliJ Idea.">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-    </list>
+    <list default="true" id="de475e65-2533-4031-abc9-48f13c2d5196" name="Changes" comment="Add packages of connection, entity and repository." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -45,7 +50,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1685321964513</updated>
-      <workItem from="1685321965601" duration="844000" />
+      <workItem from="1685321965601" duration="1640000" />
     </task>
     <task id="LOCAL-00001" summary="Create Project with IntelliJ Idea.">
       <created>1685322000835</created>
@@ -54,7 +59,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685322000835</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Add packages of connection, entity and repository.">
+      <created>1685322881493</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1685322881493</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -73,6 +85,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Create Project with IntelliJ Idea." />
-    <option name="LAST_COMMIT_MESSAGE" value="Create Project with IntelliJ Idea." />
+    <MESSAGE value="Add packages of connection, entity and repository." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add packages of connection, entity and repository." />
   </component>
 </project>
