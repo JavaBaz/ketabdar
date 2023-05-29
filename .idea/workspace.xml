@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="de475e65-2533-4031-abc9-48f13c2d5196" name="Changes" comment="Add fields of Book.java class and their setter and getter methods + Override toString method." />
+    <list default="true" id="de475e65-2533-4031-abc9-48f13c2d5196" name="Changes" comment="Add id field to Author.java &amp; Book.java classes and their setter and getter methods.">
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sql/sql commands.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0c180096-9c13-470c-b418-6e2bdafd3d8c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/0c180096-9c13-470c-b418-6e2bdafd3d8c.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -58,6 +64,9 @@
   "keyToStringList": {
     "DatabaseDriversLRU": [
       "postgresql"
+    ],
+    "com.intellij.ide.scratch.LRUPopupBuilder$1/": [
+      "PostgreSQL"
     ]
   }
 }]]></component>
@@ -71,7 +80,7 @@
       <updated>1685321964513</updated>
       <workItem from="1685321965601" duration="1958000" />
       <workItem from="1685370884148" duration="1213000" />
-      <workItem from="1685372172038" duration="3324000" />
+      <workItem from="1685372172038" duration="4824000" />
     </task>
     <task id="LOCAL-00001" summary="Create Project with IntelliJ Idea.">
       <created>1685322000835</created>
@@ -115,7 +124,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685376110830</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Add id field to Author.java &amp; Book.java classes and their setter and getter methods.">
+      <created>1685376339841</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1685376339841</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -139,6 +155,7 @@
     <MESSAGE value="Add postgres dependency to maven pom.xml file." />
     <MESSAGE value="Add fields of Author.java class and their setter and getter methods." />
     <MESSAGE value="Add fields of Book.java class and their setter and getter methods + Override toString method." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add fields of Book.java class and their setter and getter methods + Override toString method." />
+    <MESSAGE value="Add id field to Author.java &amp; Book.java classes and their setter and getter methods." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add id field to Author.java &amp; Book.java classes and their setter and getter methods." />
   </component>
 </project>
