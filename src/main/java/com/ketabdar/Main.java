@@ -14,19 +14,13 @@ public class Main {
 
         AuthorService authorService = new AuthorService();
 
-//        System.out.print("Enter your first name : ");
-//        author.setFirstName(scanner.nextLine());
-//        System.out.print("Enter your last name : ");
-//        author.setLastName(scanner.nextLine());
-//        System.out.print("Enter Your age : ");
-//        author.setAge(scanner.nextInt());
 
           // save an author
-//        authorService.save(author);
+//        authorService.register("Amin","Nima",202);
 
 
         // load an author
-        authorService.load(6);
+        authorService.load(8);
 
 
         System.out.println("-----");

@@ -50,24 +50,28 @@ public class AuthorRepository {
                 ResultSet countResultSet = countStatement.executeQuery();
                 if (countResultSet.next()) {
                     int numberOfBooks = countResultSet.getInt("total");
-                    String[] bookTitles = new String[numberOfBooks];
+                    if(numberOfBooks == 0){
+                        System.out.println("This author has no book");
+                    }else {
+                        String[] bookTitles = new String[numberOfBooks];
 
-                    String titlesQuery = "SELECT title FROM book WHERE author = ?";
-                    PreparedStatement titlesStatement = connection.prepareStatement(titlesQuery);
-                    titlesStatement.setInt(1, authorId);
+                        String titlesQuery = "SELECT title FROM book WHERE author = ?";
+                        PreparedStatement titlesStatement = connection.prepareStatement(titlesQuery);
+                        titlesStatement.setInt(1, authorId);
 
-                    ResultSet titlesResultSet = titlesStatement.executeQuery();
-                    int index = 0;
-                    while (titlesResultSet.next()) {
-                        String title = titlesResultSet.getString("title");
-                        bookTitles[index] = title;
-                        index++;
+                        ResultSet titlesResultSet = titlesStatement.executeQuery();
+                        int index = 0;
+                        while (titlesResultSet.next()) {
+                            String title = titlesResultSet.getString("title");
+                            bookTitles[index] = title;
+                            index++;
+                        }
+
+                        titlesResultSet.close();
+                        titlesStatement.close();
+
+                        author.setBookTitles(bookTitles);
                     }
-
-                    titlesResultSet.close();
-                    titlesStatement.close();
-
-                    author.setBookTitles(bookTitles);
                 }
 
                 countResultSet.close();
@@ -82,5 +86,25 @@ public class AuthorRepository {
 
         return author;
     }
+
+
+    public void lastRegistered() {
+        try (Connection connection = DBConnection.getConnection()) {
+            String query = "SELECT MAX(id) AS last_id FROM author";
+            PreparedStatement statement = connection.prepareStatement(query);
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+                int lastId = resultSet.getInt("last_id");
+                System.out.println(" with ID : " + lastId);
+            }
+
+            resultSet.close();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 
 }
