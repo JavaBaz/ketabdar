@@ -1,11 +1,23 @@
 package com.ketabdar.entity;
 
+import com.ketabdar.repository.BookRepository;
+
 public class Book {
     private long id;
     private String title;
     private int authorId;
     private int yearOfPublication;
 
+
+    public Book(){
+
+    }
+
+    public Book(String title,  int yearOfPublication, int authorId) {
+        this.title = title;
+        this.authorId = authorId;
+        this.yearOfPublication = yearOfPublication;
+    }
 
     public long getId() {
         return id;

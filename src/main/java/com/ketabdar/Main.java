@@ -11,45 +11,41 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
+        BookService bookService = new BookService();
 
-        AuthorService authorService = new AuthorService();
 
-
-          // save an author
+        // save an author
 //        authorService.register("Amin","Nima",202);
 
 
         // load an author
-        authorService.load(8);
+//        AuthorService.load(8);
 
 
         System.out.println("-----");
+        bookService.addBook("test5", 2017, 6);
 
-
-
-
-          // Create a book
+        // Create a book
 //        Book book2 = new Book();
 //        book2.setTitle("Book to delete 1");
 //        book2.setAuthorId(6);
 //        book2.setYearOfPublication(2021);
 //
 //
-          // Save the book
+        // Save the book
 //        System.out.println("---Save the book---");
 //        BookService bookService = new BookService();
 //        bookService.saveBook(book2);
 //
 //
-          // Load the book
+        // Load the book
 //        System.out.println("---Load the book---");
 //        System.out.println(BookService.loadBook(3));
 //        System.out.println();
 
-          // Delete the book
+        // Delete the book
 //        System.out.println("---Delete the book---");
 //        BookService.deleteBook(7);
-
 
 
     }
