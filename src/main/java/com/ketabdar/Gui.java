@@ -10,6 +10,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+
 public class Gui extends JFrame {
 
     private JTextField bookNameField;
@@ -18,13 +19,44 @@ public class Gui extends JFrame {
     private JButton addButton;
 
     public Gui() {
-        setTitle("Book Registration");
+        setTitle("Book and Author Options");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(400, 200);
         setLocationRelativeTo(null);
 
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new GridLayout(4, 2, 10, 10));
+
+        JButton bookOptionsButton = new JButton("Book Options");
+        JButton authorOptionsButton = new JButton("Author Options");
+
+        mainPanel.add(new JLabel());
+        mainPanel.add(bookOptionsButton);
+        mainPanel.add(new JLabel());
+        mainPanel.add(authorOptionsButton);
+
+        add(mainPanel);
+
+        bookOptionsButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Show the book registration form
+                showBookRegistrationForm();
+            }
+        });
+
+        authorOptionsButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Placeholder for author options, you can add your code here
+                JOptionPane.showMessageDialog(null, "Author Options Clicked");
+            }
+        });
+    }
+
+    private void showBookRegistrationForm() {
+        JPanel bookPanel = new JPanel();
+        bookPanel.setLayout(new GridLayout(4, 2, 10, 10));
 
         JLabel bookNameLabel = new JLabel("Book Name:");
         bookNameField = new JTextField();
@@ -34,14 +66,14 @@ public class Gui extends JFrame {
         authorIdField = new JTextField();
         addButton = new JButton("Add Book");
 
-        mainPanel.add(bookNameLabel);
-        mainPanel.add(bookNameField);
-        mainPanel.add(yearLabel);
-        mainPanel.add(yearField);
-        mainPanel.add(authorIdLabel);
-        mainPanel.add(authorIdField);
-        mainPanel.add(new JLabel());
-        mainPanel.add(addButton);
+        bookPanel.add(bookNameLabel);
+        bookPanel.add(bookNameField);
+        bookPanel.add(yearLabel);
+        bookPanel.add(yearField);
+        bookPanel.add(authorIdLabel);
+        bookPanel.add(authorIdField);
+        bookPanel.add(new JLabel());
+        bookPanel.add(addButton);
 
         addButton.addActionListener(new ActionListener() {
             @Override
@@ -61,7 +93,10 @@ public class Gui extends JFrame {
             }
         });
 
-        add(mainPanel);
+        getContentPane().removeAll();
+        getContentPane().add(bookPanel);
+        revalidate();
+        repaint();
     }
 
     public static void main(String[] args) {

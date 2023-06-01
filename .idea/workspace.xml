@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="de475e65-2533-4031-abc9-48f13c2d5196" name="Changes" comment="Add addBook method to BookService.java">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ketabdar/Gui.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ketabdar/entity/Author.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ketabdar/entity/Author.java" afterDir="false" />
+    <list default="true" id="de475e65-2533-4031-abc9-48f13c2d5196" name="Changes" comment="Add Gui class to add books to DataBase with Gui">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ketabdar/Gui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ketabdar/Gui.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +88,7 @@
       <workItem from="1685393841978" duration="141000" />
       <workItem from="1685456097705" duration="237000" />
       <workItem from="1685562835827" duration="12161000" />
-      <workItem from="1685585065247" duration="3681000" />
+      <workItem from="1685585065247" duration="3999000" />
     </task>
     <task id="LOCAL-00001" summary="Create Project with IntelliJ Idea.">
       <created>1685322000835</created>
@@ -225,7 +223,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685587641235</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Add Gui class to add books to DataBase with Gui">
+      <created>1685588764356</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1685588764356</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -262,6 +267,7 @@
     <MESSAGE value="Add register method to AuthorService.java." />
     <MESSAGE value="Add a better registration info in terminal after registering an author." />
     <MESSAGE value="Add addBook method to BookService.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add addBook method to BookService.java" />
+    <MESSAGE value="Add Gui class to add books to DataBase with Gui" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Gui class to add books to DataBase with Gui" />
   </component>
 </project>
