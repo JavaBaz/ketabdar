@@ -26,33 +26,61 @@ public class AuthorRepository {
     }
 
 
-    public Author load(int id) {
+    public Author load(int authorId) {
         Author author = null;
 
-        try {
-            String query = "SELECT * FROM author WHERE id = ?";
-            Connection connection = DBConnection.getConnection();
-            PreparedStatement statement = connection.prepareStatement(query);
-            statement.setInt(1, id);
+        try (Connection connection = DBConnection.getConnection()) {
+            String authorQuery = "SELECT * FROM author WHERE id = ?";
+            PreparedStatement authorStatement = connection.prepareStatement(authorQuery);
+            authorStatement.setInt(1, authorId);
 
-            ResultSet resultSet = statement.executeQuery();
-            if (resultSet.next()) {
-                int authorId = resultSet.getInt("id");
-                String firstName = resultSet.getString("first_name");
-                String lastName = resultSet.getString("last_name");
-                int age = resultSet.getInt("age");
+            ResultSet authorResultSet = authorStatement.executeQuery();
+            if (authorResultSet.next()) {
+                int id = authorResultSet.getInt("id");
+                String firstName = authorResultSet.getString("first_name");
+                String lastName = authorResultSet.getString("last_name");
+                int age = authorResultSet.getInt("age");
 
-                author = new Author(authorId, firstName, lastName, age);
+                author = new Author(id, firstName, lastName, age);
+
+                String countQuery = "SELECT COUNT(*) AS total FROM book WHERE author = ?";
+                PreparedStatement countStatement = connection.prepareStatement(countQuery);
+                countStatement.setInt(1, authorId);
+
+                ResultSet countResultSet = countStatement.executeQuery();
+                if (countResultSet.next()) {
+                    int numberOfBooks = countResultSet.getInt("total");
+                    String[] bookTitles = new String[numberOfBooks];
+
+                    String titlesQuery = "SELECT title FROM book WHERE author = ?";
+                    PreparedStatement titlesStatement = connection.prepareStatement(titlesQuery);
+                    titlesStatement.setInt(1, authorId);
+
+                    ResultSet titlesResultSet = titlesStatement.executeQuery();
+                    int index = 0;
+                    while (titlesResultSet.next()) {
+                        String title = titlesResultSet.getString("title");
+                        bookTitles[index] = title;
+                        index++;
+                    }
+
+                    titlesResultSet.close();
+                    titlesStatement.close();
+
+                    author.setBookTitles(bookTitles);
+                }
+
+                countResultSet.close();
+                countStatement.close();
             }
 
-            resultSet.close();
-            statement.close();
+            authorResultSet.close();
+            authorStatement.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
         return author;
     }
-
-
 
 }

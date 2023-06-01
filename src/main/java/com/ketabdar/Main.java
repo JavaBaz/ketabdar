@@ -13,7 +13,6 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         AuthorService authorService = new AuthorService();
-        Author author = new Author();
 
 //        System.out.print("Enter your first name : ");
 //        author.setFirstName(scanner.nextLine());
@@ -28,6 +27,8 @@ public class Main {
 
         // load an author
         authorService.load(6);
+
+
         System.out.println("-----");
 
 
