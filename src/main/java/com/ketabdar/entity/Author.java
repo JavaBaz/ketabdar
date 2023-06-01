@@ -7,7 +7,7 @@ public class Author {
     private String firstName;
     private String lastName;
     private int age;
-    private Book[] listOfBooks;
+    private String[] books;
 
 
     public Author(){
@@ -19,6 +19,7 @@ public class Author {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
+        this.books = new String[0]; // Initialize the books array with an empty array
     }
 
 
@@ -29,6 +30,11 @@ public class Author {
         this.lastName = lastName;
         this.age = age;
     }
+
+
+
+
+
 
     public long getId() {
         return id;
@@ -62,12 +68,13 @@ public class Author {
         this.age = age;
     }
 
-    public Book[] getListOfBooks() {
-        return listOfBooks;
+
+    public String[] getBooks() {
+        return books;
     }
 
-    public void setListOfBooks(Book[] listOfBooks) {
-        this.listOfBooks = listOfBooks;
+    public void setBooks(String[] books) {
+        this.books = books;
     }
 
     @Override
@@ -76,7 +83,7 @@ public class Author {
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", age=" + age +
-                ", listOfBooks=" + Arrays.toString(listOfBooks) +
+                ", listOfBooks=" + Arrays.toString(books) +
                 '}';
     }
 }

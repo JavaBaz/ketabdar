@@ -12,9 +12,9 @@ CREATE TABLE author
 -- Create a table named book
 CREATE TABLE book
 (id SERIAL PRIMARY KEY,
- tittle varchar(50) NOT NULL ,
+ title varchar(50) NOT NULL ,
  author SMALLINT NOT NULL ,
- yearOfPublication SMALLINT NOT NULL
+ year_of_publication SMALLINT NOT NULL
 );
 
 -- Add foreign key from book.author to author.id

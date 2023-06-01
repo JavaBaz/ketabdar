@@ -2,8 +2,8 @@ package com.ketabdar.entity;
 
 public class Book {
     private long id;
-    private String tittle;
-    private String author;
+    private String title;
+    private int authorId;
     private int yearOfPublication;
 
 
@@ -15,20 +15,20 @@ public class Book {
         this.id = id;
     }
 
-    public String getTittle() {
-        return tittle;
+    public String getTitle() {
+        return title;
     }
 
-    public void setTittle(String tittle) {
-        this.tittle = tittle;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getAuthor() {
-        return author;
+    public int getAuthorId() {
+        return authorId;
     }
 
-    public void setAuthor(String author) {
-        this.author = author;
+    public void setAuthorId(int authorId) {
+        this.authorId = authorId;
     }
 
     public int getYearOfPublication() {
@@ -42,8 +42,8 @@ public class Book {
     @Override
     public String toString() {
         return "Book{" +
-                "tittle='" + tittle + '\'' +
-                ", author='" + author + '\'' +
+                "tittle='" + title + '\'' +
+                ", author='" + authorId + '\'' +
                 ", yearOfPublication=" + yearOfPublication +
                 '}';
     }

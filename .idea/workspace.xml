@@ -4,12 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="de475e65-2533-4031-abc9-48f13c2d5196" name="Changes" comment="Add method save to AuthorRepository.java and AuthorService.java.">
+    <list default="true" id="de475e65-2533-4031-abc9-48f13c2d5196" name="Changes" comment="Add method Load to AuthorRepository.java and AuthorService.java.">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0c180096-9c13-470c-b418-6e2bdafd3d8c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/0c180096-9c13-470c-b418-6e2bdafd3d8c.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0c180096-9c13-470c-b418-6e2bdafd3d8c/storage_v2/_src_/database/ketabdar.ukFqFQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/0c180096-9c13-470c-b418-6e2bdafd3d8c/storage_v2/_src_/database/ketabdar.ukFqFQ/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ketabdar/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ketabdar/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ketabdar/entity/Author.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ketabdar/entity/Author.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ketabdar/repository/AuthorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ketabdar/repository/AuthorRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ketabdar/service/AuthorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ketabdar/service/AuthorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ketabdar/entity/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ketabdar/entity/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ketabdar/repository/BookRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ketabdar/repository/BookRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ketabdar/service/BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ketabdar/service/BookService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sql/sql commands.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/sql/sql commands.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +91,7 @@
       <workItem from="1685393199038" duration="614000" />
       <workItem from="1685393841978" duration="141000" />
       <workItem from="1685456097705" duration="237000" />
-      <workItem from="1685562835827" duration="6588000" />
+      <workItem from="1685562835827" duration="8092000" />
     </task>
     <task id="LOCAL-00001" summary="Create Project with IntelliJ Idea.">
       <created>1685322000835</created>
@@ -158,7 +163,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685574838594</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Add method Load to AuthorRepository.java and AuthorService.java.">
+      <created>1685579427263</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1685579427263</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -186,6 +198,7 @@
     <MESSAGE value="Create Tables in &quot;sql commands.sql&quot; file." />
     <MESSAGE value="Create connection package and its classes named DBConfig.java and DBConnection.java." />
     <MESSAGE value="Add method save to AuthorRepository.java and AuthorService.java." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add method save to AuthorRepository.java and AuthorService.java." />
+    <MESSAGE value="Add method Load to AuthorRepository.java and AuthorService.java." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add method Load to AuthorRepository.java and AuthorService.java." />
   </component>
 </project>
