@@ -10,4 +10,14 @@ public class AuthorService {
         authorRepository.save(author);
     }
 
+    public void load(int authorId){
+        Author loadedAuthor = authorRepository.load(authorId);
+        if (loadedAuthor != null) {
+            System.out.println("Loaded author: " + loadedAuthor.getFirstName() + " " +
+                    loadedAuthor.getLastName() + ", Age: " + loadedAuthor.getAge());
+        } else {
+            System.out.println("Author not found with ID: " + authorId);
+        }
+    }
+
 }
