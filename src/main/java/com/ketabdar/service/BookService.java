@@ -10,4 +10,8 @@ public class BookService {
     public void saveBook(Book book) {
         BookRepository.save(book);
     }
+
+    public static Book loadBook(int bookId) {
+        return BookRepository.load(bookId);
+    }
 }

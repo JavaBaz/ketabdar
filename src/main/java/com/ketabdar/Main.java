@@ -32,17 +32,23 @@ public class Main {
 
 
         // Create a book
-        Book book = new Book();
-        book.setTitle("Book 1");
-        book.setAuthorId(6);
-        book.setYearOfPublication(2021);
+//        Book book = new Book();
+//        book.setTitle("Book 1");
+//        book.setAuthorId(6);
+//        book.setYearOfPublication(2021);
+//
+//        System.out.println("---Save the book---");
+//
+//        // Save the book
+//        BookService bookService = new BookService();
+//        bookService.saveBook(book);
 
-        System.out.println("---Save the book---");
 
-        // Save the book
-        BookService bookService = new BookService();
-        bookService.saveBook(book);
 
+
+        System.out.println("---Load the book---");
+        Book loadedBook = BookService.loadBook(1);
+        System.out.println(loadedBook);
 
     }
 }
