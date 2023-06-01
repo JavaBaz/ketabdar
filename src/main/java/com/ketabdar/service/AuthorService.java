@@ -6,7 +6,8 @@ import com.ketabdar.repository.AuthorRepository;
 public class AuthorService {
     static AuthorRepository authorRepository = new AuthorRepository();
 
-    public void save(Author author){
+    public void register(String firstname, String lastname, int age){
+        Author author = new Author(firstname, lastname, age);
         authorRepository.save(author);
     }
 
