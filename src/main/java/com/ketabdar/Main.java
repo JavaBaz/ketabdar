@@ -12,8 +12,8 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
-        AuthorService authorService = new AuthorService();
-        Author author = new Author();
+//        AuthorService authorService = new AuthorService();
+//        Author author = new Author();
 
 //        System.out.print("Enter your first name : ");
 //        author.setFirstName(scanner.nextLine());
@@ -22,33 +22,40 @@ public class Main {
 //        System.out.print("Enter Your age : ");
 //        author.setAge(scanner.nextInt());
 
+          // save an author
 //        authorService.save(author);
 
-        System.out.println("-----");
-        authorService.load(8);
+
+        // load an author
+//        authorService.load(8);
         System.out.println("-----");
 
 
 
 
         // Create a book
-//        Book book = new Book();
-//        book.setTitle("Book 1");
-//        book.setAuthorId(6);
-//        book.setYearOfPublication(2021);
+//        Book book2 = new Book();
+//        book2.setTitle("Book to delete 1");
+//        book2.setAuthorId(6);
+//        book2.setYearOfPublication(2021);
 //
-//        System.out.println("---Save the book---");
 //
 //        // Save the book
+//        System.out.println("---Save the book---");
 //        BookService bookService = new BookService();
-//        bookService.saveBook(book);
+//        bookService.saveBook(book2);
+//
+//
+//
+//        System.out.println("---Load the book---");
+//        System.out.println(BookService.loadBook(3));
+//        System.out.println();
 
 
+        System.out.println("---Delete the book---");
+        BookService.deleteBook(7);
 
 
-        System.out.println("---Load the book---");
-        Book loadedBook = BookService.loadBook(1);
-        System.out.println(loadedBook);
 
     }
 }

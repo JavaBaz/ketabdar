@@ -14,4 +14,8 @@ public class BookService {
     public static Book loadBook(int bookId) {
         return BookRepository.load(bookId);
     }
+
+    public static void deleteBook(int bookId) {
+        BookRepository.delete(bookId);
+    }
 }

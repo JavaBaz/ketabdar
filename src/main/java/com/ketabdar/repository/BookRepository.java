@@ -66,5 +66,18 @@ public class BookRepository {
     }
 
 
+    public static void delete(int bookId) {
+        try (Connection connection = DBConnection.getConnection()) {
+            String query = "DELETE FROM book WHERE id = ?";
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setInt(1, bookId);
+
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 
 }
