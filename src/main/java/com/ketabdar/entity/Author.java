@@ -1,40 +1,32 @@
 package com.ketabdar.entity;
 
 import java.util.Arrays;
+import java.util.Date;
 
 public class Author {
     private long id;
-    private String firstName;
-    private String lastName;
-    private int age;
+    private String name;
+    private String biography;
+    private Date birthdate;
     private String[] bookTitles;
 
-
-    public Author(){
-
+    public Author() {
     }
 
-
-    public Author(String firstName, String lastName, int age) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.age = age;
-        this.bookTitles = new String[0]; // Initialize the books array with an empty array
+    public Author(String name, String biography, Date birthdate) {
+        this.name = name;
+        this.biography = biography;
+        this.birthdate = birthdate;
+        this.bookTitles = new String[0];
     }
 
-
-
-    public Author(long id, String firstName, String lastName, int age) {
+    public Author(long id, String name, String biography, Date birthdate) {
         this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.age = age;
+        this.name = name;
+        this.biography = biography;
+        this.birthdate = birthdate;
+        this.bookTitles = new String[0];
     }
-
-
-
-
-
 
     public long getId() {
         return id;
@@ -44,30 +36,29 @@ public class Author {
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getName() {
+        return name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getBiography() {
+        return biography;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setBiography(String biography) {
+        this.biography = biography;
     }
 
-    public int getAge() {
-        return age;
+    public Date getBirthdate() {
+        return birthdate;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setBirthdate(Date birthdate) {
+        this.birthdate = birthdate;
     }
-
 
     public String[] getBookTitles() {
         return bookTitles;
@@ -80,9 +71,9 @@ public class Author {
     @Override
     public String toString() {
         return "Author{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", age=" + age +
+                "name='" + name + '\'' +
+                ", biography='" + biography + '\'' +
+                ", birthdate=" + birthdate +
                 ", listOfBooks=" + Arrays.toString(bookTitles) +
                 '}';
     }

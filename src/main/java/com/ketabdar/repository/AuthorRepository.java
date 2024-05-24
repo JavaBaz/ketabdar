@@ -4,107 +4,96 @@ import com.ketabdar.connection.DBConnection;
 import com.ketabdar.entity.Author;
 
 import java.sql.*;
+import java.util.Date;
 
 public class AuthorRepository {
+    private Connection connection;
 
+    public AuthorRepository() {
+        this.connection = DBConnection.getConnection();
+    }
 
     public void save(Author author) {
-
-        try {
-            Connection connection = DBConnection.getConnection();
-            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO author (first_name, last_name, age)" +
-                    " VALUES (?,?,?);");
-            preparedStatement.setString(1, author.getFirstName());
-            preparedStatement.setString(2, author.getLastName());
-            preparedStatement.setInt(3, author.getAge());
+        String sql = "INSERT INTO authors (name, biography, birthdate) VALUES (?, ?, ?);";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            preparedStatement.setString(1, author.getName());
+            preparedStatement.setString(2, author.getBiography());
+            preparedStatement.setDate(3, new java.sql.Date(author.getBirthdate().getTime()));
             preparedStatement.execute();
-            preparedStatement.close();
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
+    public Author load(String authorName) {
+        String authorQuery = "SELECT * FROM authors WHERE name = ?";
 
-    public Author load(int authorId) {
-        Author author = null;
-
-        try (Connection connection = DBConnection.getConnection()) {
-            String authorQuery = "SELECT * FROM author WHERE id = ?";
-            PreparedStatement authorStatement = connection.prepareStatement(authorQuery);
-            authorStatement.setInt(1, authorId);
-
+        try (PreparedStatement authorStatement = connection.prepareStatement(authorQuery)) {
+            authorStatement.setString(1, authorName);
             ResultSet authorResultSet = authorStatement.executeQuery();
+
             if (authorResultSet.next()) {
-                int id = authorResultSet.getInt("id");
-                String firstName = authorResultSet.getString("first_name");
-                String lastName = authorResultSet.getString("last_name");
-                int age = authorResultSet.getInt("age");
+                long id = authorResultSet.getLong("author_id");
+                String name = authorResultSet.getString("name");
+                String biography = authorResultSet.getString("biography");
+                Date birthdate = authorResultSet.getDate("birthdate");
 
-                author = new Author(id, firstName, lastName, age);
+                Author author = new Author(id, name, biography, birthdate);
 
-                String countQuery = "SELECT COUNT(*) AS total FROM book WHERE author = ?";
-                PreparedStatement countStatement = connection.prepareStatement(countQuery);
-                countStatement.setInt(1, authorId);
-
-                ResultSet countResultSet = countStatement.executeQuery();
-                if (countResultSet.next()) {
-                    int numberOfBooks = countResultSet.getInt("total");
-                    if(numberOfBooks == 0){
-                        System.out.println("This author has no book");
-                    }else {
-                        String[] bookTitles = new String[numberOfBooks];
-
-                        String titlesQuery = "SELECT title FROM book WHERE author = ?";
-                        PreparedStatement titlesStatement = connection.prepareStatement(titlesQuery);
-                        titlesStatement.setInt(1, authorId);
-
-                        ResultSet titlesResultSet = titlesStatement.executeQuery();
-                        int index = 0;
-                        while (titlesResultSet.next()) {
-                            String title = titlesResultSet.getString("title");
-                            bookTitles[index] = title;
-                            index++;
+                String countQuery = "SELECT COUNT(*) AS total FROM books WHERE author_id = ?";
+                try (PreparedStatement countStatement = connection.prepareStatement(countQuery)) {
+                    countStatement.setLong(1, id);
+                    ResultSet countResultSet = countStatement.executeQuery();
+                    if (countResultSet.next()) {
+                        int numberOfBooks = countResultSet.getInt("total");
+                        if (numberOfBooks == 0) {
+                            System.out.println("This author has no books");
+                        } else {
+                            String[] bookTitles = new String[numberOfBooks];
+                            String titlesQuery = "SELECT title FROM books WHERE author_id = ?";
+                            try (PreparedStatement titlesStatement = connection.prepareStatement(titlesQuery)) {
+                                titlesStatement.setLong(1, id);
+                                ResultSet titlesResultSet = titlesStatement.executeQuery();
+                                int index = 0;
+                                while (titlesResultSet.next()) {
+                                    String title = titlesResultSet.getString("title");
+                                    bookTitles[index] = title;
+                                    index++;
+                                }
+                                author.setBookTitles(bookTitles);
+                            }
                         }
-
-                        titlesResultSet.close();
-                        titlesStatement.close();
-
-                        author.setBookTitles(bookTitles);
                     }
                 }
-
-                countResultSet.close();
-                countStatement.close();
+                return author;
             }
-
-            authorResultSet.close();
-            authorStatement.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        return author;
+        return null;
     }
 
-
     public void lastRegistered() {
-        try (Connection connection = DBConnection.getConnection()) {
-            String query = "SELECT MAX(id) AS last_id FROM author";
-            PreparedStatement statement = connection.prepareStatement(query);
+        String query = "SELECT MAX(author_id) AS last_id FROM authors";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
             ResultSet resultSet = statement.executeQuery();
-
             if (resultSet.next()) {
                 int lastId = resultSet.getInt("last_id");
                 System.out.println(" with ID : " + lastId);
             }
-
-            resultSet.close();
-            statement.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-
+    public void close() {
+        try {
+            if (connection != null && !connection.isClosed()) {
+                connection.close();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

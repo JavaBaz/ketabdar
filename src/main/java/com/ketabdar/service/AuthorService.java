@@ -3,31 +3,37 @@ package com.ketabdar.service;
 import com.ketabdar.entity.Author;
 import com.ketabdar.repository.AuthorRepository;
 
+import java.util.Date;
+
 public class AuthorService {
     static AuthorRepository authorRepository = new AuthorRepository();
 
-    public void register(String firstname, String lastname, int age) {
-        Author author = new Author(firstname, lastname, age);
+    public String register(String name, String biography, Date birthdate) {
+        Author author = new Author(name, biography, birthdate);
         authorRepository.save(author);
-        System.out.println("Author registration  with following detail is completed !");
-        System.out.print("Full name : " + firstname + " " + lastname + " | " + " age : " + age);
-        authorRepository.lastRegistered();
+        System.out.println("Author registration with the following details is completed!");
+        System.out.println("Name: " + name + " | Biography: " + biography + " | Birthdate: " + birthdate);
+
+        return "TEST";
     }
 
-    public static Author load(int authorId) {
-        Author loadedAuthor = authorRepository.load(authorId);
+    public static Author load(String authorName) {
+        Author loadedAuthor = authorRepository.load(authorName);
         if (loadedAuthor != null) {
-            System.out.println("Loaded author: " + loadedAuthor.getFirstName() + " " +
-                    loadedAuthor.getLastName() + ", Age: " + loadedAuthor.getAge());
+            System.out.println("Loaded author: " + loadedAuthor.getName() +
+                    ", Biography: " + loadedAuthor.getBiography() +
+                    ", Birthdate: " + loadedAuthor.getBirthdate());
 
             String[] bookTitles = loadedAuthor.getBookTitles();
             System.out.println("Author's book titles:");
             for (String title : bookTitles) {
                 System.out.println("- " + title);
             }
-
         }
         return loadedAuthor;
     }
 
+    public static void closeRepository() {
+        authorRepository.close();
+    }
 }
