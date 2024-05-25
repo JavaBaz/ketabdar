@@ -14,7 +14,7 @@ public class Main {
         AuthorService authorService = new AuthorService();
 
 //         save an author
-        authorService.register("Amin","Nima", new Date());
+        authorService.register("Amin","Test", new Date());
 
 
         // load an author

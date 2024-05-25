@@ -17,7 +17,7 @@ public class BookRepository {
 
 
         try {
-            String query = "INSERT INTO book (title, author, year_of_publication) " +
+            String query = "INSERT INTO books (title, author, year_of_publication) " +
                            "VALUES ( ?, ?, ?)";
             Connection connection = DBConnection.getConnection();
             PreparedStatement statement = connection.prepareStatement(query);
